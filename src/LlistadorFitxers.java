@@ -3,29 +3,20 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class LlistadorFitxers {
-    private String directori;
 
-    public String getDirectori() {
-        return directori;
+    public static File[] llegirDirectori(File directori){
+        return directori.listFiles();
     }
 
-    public void setDirectori(String directori) {
-        this.directori = directori;
+    public static void publicaFiles(File[] arrFile){
+        Arrays.sort(arrFile, Comparator.comparing(File::getName, String.CASE_INSENSITIVE_ORDER));
+        for (File fitxer : arrFile) {
+            if(fitxer.isDirectory()){
+                llegirDirectori(fitxer);
+            }else{
+                System.out.println("  " + (fitxer.isDirectory() ? "[D] " : "[F] ") + fitxer.getName());
+            }
+        }
     }
-
-    public LlistadorFitxers(String directori) {
-        this.directori = directori;
-    }
-
-    public File[] getFiles(File directori){
-
-        return null;
-    }
-/*
-    public File[] ordenarFiles(File[] arrFile){
-
-        return Arrays.sort(arrFile, Comparator.comparing(File::getName, String.CASE_INSENSITIVE_ORDER));
-    }
-    */
 
 }
