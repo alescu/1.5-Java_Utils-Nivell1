@@ -21,8 +21,8 @@ Instal·lació:
 	
 Execució
     Descarregar el projecte.
-	Compilar el projecte.
-	Executar el main.
+	Compilar el projecte, amb javac *.java
+	Executar el main amb java *.java
 	
 Desplegament:
     Cal desplegar els compilats en el lloc determinat.
